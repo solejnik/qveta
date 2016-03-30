@@ -2,23 +2,26 @@ package com.capgemini.solejnik.qveta.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.capgemini.solejnik.qveta.enums.VisitStatusEnum;
 
 @Entity
+@Table(name = "VISIT")
 public class VisitEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private CallEntity call;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private PetEntity pet;
 	@Column(nullable = false)
 	private Date beginTime;
@@ -30,10 +33,11 @@ public class VisitEntity {
 	public VisitEntity() {
 	}
 
-	public VisitEntity(CallEntity call, PetEntity pet) {
+	public VisitEntity(CallEntity call, PetEntity pet, Date beginTime) {
 		this.call = call;
 		this.pet = pet;
 		this.status = VisitStatusEnum.REGISTERED;
+		this.beginTime = beginTime;
 	}
 
 	public Long getId() {

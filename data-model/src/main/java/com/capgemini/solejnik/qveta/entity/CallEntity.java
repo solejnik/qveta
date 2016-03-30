@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,19 +12,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "CALL")
 public class CallEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(nullable = false)
 	private Date timeFrom;
 	@Column(nullable = false)
 	private Date timeTo;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	private UserEntity doctor;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	private CabinetEntity cabinet;
 	@OneToMany(mappedBy = "call")
 	private Set<VisitEntity> visits = new HashSet<VisitEntity>();

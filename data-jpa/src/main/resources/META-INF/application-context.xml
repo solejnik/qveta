@@ -7,18 +7,31 @@
 
 
 	<!-- database -->
-	<jdbc:embedded-database id="datasource" type="H2" />
+	<!-- <jdbc:embedded-database id="datasource" type="H2" /> -->
+	<bean id="datasource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>org.postgresql.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:postgresql://localhost:5432/qveta</value>
+		</property>
+		<property name="username">
+			<value>postgres</value>
+		</property>
+		<property name="password">
+			<value>postgres</value>
+		</property>
+	</bean>
+
 
 	<!-- entity manager -->
 	<bean id="entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+		depends-on="transactionManager">
 		<property name="dataSource" ref="datasource" />
+		<!-- <property name="packagesToScan" value="com.capgemini.solejnik.qveta.entity" /> -->
 		<property name="persistenceUnitName" value="qveta-persistence" />
-<!-- 		<property name="packagesToScan"> -->
-<!-- 			<array> -->
-<!-- 				<value>com.capgemini.solejnik.qveta.entity</value> -->
-<!-- 			</array> -->
-<!-- 		</property> -->
 	</bean>
 
 	<!-- transaction -->

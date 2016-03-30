@@ -3,6 +3,7 @@ package com.capgemini.solejnik.qveta.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,15 +11,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "CABINET")
 public class CabinetEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(nullable = false, length = 255)
 	private String name;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	private ClinicEntity clinic;
 	@OneToMany(mappedBy = "cabinet")
 	private Set<CallEntity> calls = new HashSet<CallEntity>();

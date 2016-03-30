@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,30 +12,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "PET")
 public class PetEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(nullable = false)
 	private String name;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private PetTypeEntity type;
 	@Column(nullable = false)
 	private Date bornDate;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private UserEntity owner;
-	@OneToMany(mappedBy = "pet")
+	@OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
 	private Set<VisitEntity> visits = new HashSet<VisitEntity>();
 
 	public PetEntity() {
 	}
 
-	public PetEntity(String name, PetTypeEntity type, UserEntity owner) {
+	public PetEntity(String name, PetTypeEntity type, UserEntity owner, Date bornDate) {
 		this.name = name;
 		this.type = type;
 		this.owner = owner;
+		this.bornDate = bornDate;
 	}
 
 	public Long getId() {

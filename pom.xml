@@ -10,5 +10,6 @@
 	<modules>
 		<module>data-model</module>
 		<module>data-jpa</module>
+		<module>war</module>
 	</modules>
 </project>
