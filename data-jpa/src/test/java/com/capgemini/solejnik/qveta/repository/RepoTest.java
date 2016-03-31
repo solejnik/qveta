@@ -17,12 +17,16 @@ import com.capgemini.solejnik.qveta.entity.PetTypeEntity;
 import com.capgemini.solejnik.qveta.entity.UserEntity;
 import com.capgemini.solejnik.qveta.entity.VisitEntity;
 import com.capgemini.solejnik.qveta.enums.RoleEnum;
+import com.capgemini.solejnik.qveta.service.VisitService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:META-INF/application-context.xml")
+@ContextConfiguration(locations = "classpath:META-INF/service.xml")
 public class RepoTest {
 	@Autowired
 	VisitRepository repo;
+	
+	@Autowired
+	VisitService service;
 	
 
 	@Test
@@ -40,6 +44,9 @@ public class RepoTest {
 		CallEntity call = new CallEntity(new Date(), new Date(), doctor, cabinet);
 //		
 		VisitEntity visit = new VisitEntity(call, pet,new Date());
+		repo.save(visit);
+		
+		pet.setName("encja");
 		repo.save(visit);
 //		
 //		// when

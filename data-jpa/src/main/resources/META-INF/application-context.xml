@@ -30,8 +30,11 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
 		depends-on="transactionManager">
 		<property name="dataSource" ref="datasource" />
-		<!-- <property name="packagesToScan" value="com.capgemini.solejnik.qveta.entity" /> -->
 		<property name="persistenceUnitName" value="qveta-persistence" />
+		<property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+		<property name="packagesToScan" value="com.capgemini.solejnik.qveta.entity" />
 	</bean>
 
 	<!-- transaction -->
@@ -41,4 +44,5 @@
 
 	<!-- repo -->
 	<jpa:repositories base-package="com.capgemini.solejnik.qveta.repository" />
+	
 </beans>
