@@ -17,7 +17,6 @@ import com.capgemini.solejnik.qveta.entity.PetTypeEntity;
 import com.capgemini.solejnik.qveta.entity.UserEntity;
 import com.capgemini.solejnik.qveta.entity.VisitEntity;
 import com.capgemini.solejnik.qveta.enums.RoleEnum;
-import com.capgemini.solejnik.qveta.service.VisitService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:META-INF/service.xml")
@@ -25,8 +24,8 @@ public class RepoTest {
 	@Autowired
 	VisitRepository repo;
 	
-	@Autowired
-	VisitService service;
+//	@Autowired
+//	VisitService service;
 	
 
 	@Test
@@ -48,6 +47,9 @@ public class RepoTest {
 		
 		pet.setName("encja");
 		repo.save(visit);
+		repo.delete(visit);
+		repo.save(visit);
+		System.out.println(123);
 //		
 //		// when
 //		repo.save(visit);

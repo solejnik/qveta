@@ -6,19 +6,16 @@ public class UserTo {
 	private Long id;
 	private String firstName;
 	private String lastName;
-	private CityTo city;
 	private RoleEnum role;
-
 	private String email;
 	private String password;
 
 	public UserTo() {
 	}
 
-	public UserTo(String firstName, String lastName, CityTo city, String email, String password, RoleEnum role) {
+	public UserTo(String firstName, String lastName, String email, String password, RoleEnum role) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.city = city;
 		this.email = email;
 		this.password = password;
 		this.role = role;
@@ -46,14 +43,6 @@ public class UserTo {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public CityTo getCity() {
-		return city;
-	}
-
-	public void setCity(CityTo city) {
-		this.city = city;
 	}
 
 	public String getEmail() {

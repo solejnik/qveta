@@ -9,7 +9,7 @@ public class VisitTo {
 	private CallTo call;
 	private PetTo pet;
 	private Date beginTime;
-	private Date endTine;
+
 	private String recognition;
 	private String courseOfTreatment;
 	private VisitStatusEnum status;
@@ -17,11 +17,11 @@ public class VisitTo {
 	public VisitTo() {
 	}
 
-	public VisitTo(CallTo call, PetTo pet) {
-		super();
+	public VisitTo(CallTo call, PetTo pet, Date beginTime) {
 		this.call = call;
 		this.pet = pet;
 		this.status = VisitStatusEnum.REGISTERED;
+		this.beginTime = beginTime;
 	}
 
 	public Long getId() {
@@ -56,14 +56,6 @@ public class VisitTo {
 		this.beginTime = beginTime;
 	}
 
-	public Date getEndTine() {
-		return endTine;
-	}
-
-	public void setEndTine(Date endTine) {
-		this.endTine = endTine;
-	}
-
 	public String getRecognition() {
 		return recognition;
 	}
@@ -86,6 +78,10 @@ public class VisitTo {
 
 	public void setStatus(String status) {
 		this.status = VisitStatusEnum.getVisitStatusEnum(status);
+	}
+
+	public void setStatus(VisitStatusEnum status) {
+		this.status = status;
 	}
 
 }
