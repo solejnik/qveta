@@ -12,7 +12,7 @@ import com.capgemini.solejnik.qveta.entity.UserEntity;
 import com.capgemini.solejnik.qveta.enums.RoleEnum;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:META-INF/service.xml")
+@ContextConfiguration(locations = "classpath:config/repository/repositories-test.xml")
 public class UserRepositoryTest {
 	@Autowired
 	private UserRepository userRepository;

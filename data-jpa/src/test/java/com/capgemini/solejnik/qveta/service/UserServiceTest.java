@@ -1,4 +1,4 @@
-package com.capgemini.solejnik.qveta.repository;
+package com.capgemini.solejnik.qveta.service;
 
 import static org.junit.Assert.*;
 
@@ -13,7 +13,8 @@ import com.capgemini.solejnik.qveta.service.UserService;
 import com.capgemini.solejnik.qveta.to.UserTo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:META-INF/service.xml")
+@ContextConfiguration(locations = "classpath:config/service/services-test.xml")
+
 public class UserServiceTest {
 	@Autowired
 	private UserService userService;
