@@ -9,7 +9,13 @@
     <br>
     <div style="text-align:center">
         <h3>
-            <a href="sampleVisit">Click here to See sample visit</a>
+            <a href="sampleUser">Click here to See sample user</a>
+        </h3>
+        <h3>
+            <a href="static/sampleStatic.html">Click here to See sample static</a>
+        </h3>
+        <h3>
+            <a href="rest">Click here to See sample json</a>
         </h3>
     </div>
 </body>

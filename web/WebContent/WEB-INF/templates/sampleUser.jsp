@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-{{user}}
+[[${user}]]
 	<table border="1">
         <tr>
             <td>

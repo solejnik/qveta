@@ -14,11 +14,10 @@ public class SampleController {
 	@Autowired
 	private UserService service;
 
-	@RequestMapping("/sampleVisit")
+	@RequestMapping("/sampleUser")
 	public ModelAndView helloWorld() {
 		UserTo userTo = new UserTo("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ADMIN);
 		service.saveUser(userTo);
 		return new ModelAndView("sampleUser", "user", userTo);
 	}
-
 }
