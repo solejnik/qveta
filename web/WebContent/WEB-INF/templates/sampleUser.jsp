@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+{{user}}
 	<table border="1">
         <tr>
             <td>
