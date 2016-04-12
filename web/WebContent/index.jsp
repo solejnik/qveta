@@ -9,6 +9,9 @@
     <br>
     <div style="text-align:center">
         <h3>
+            <a href="static/index.html">INDEX</a>
+        </h3>
+        <h3>
             <a href="sampleUser">Click here to See sample user</a>
         </h3>
         <h3>
