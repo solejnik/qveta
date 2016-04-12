@@ -1,7 +1,7 @@
 package com.capgemini.solejnik.qveta.enums;
 
 public enum RoleEnum {
-	ADMIN("ADMIN"), CLIENT("CLIENT"), DOCTOR("DOCTOR"), RECEPTIONIST("RECEPTIONIST");
+	ROLE_ADMIN("ROLE_ADMIN"), CLIENT("CLIENT"), DOCTOR("DOCTOR"), RECEPTIONIST("RECEPTIONIST");
 
 	private String role;
 

@@ -17,13 +17,13 @@ public class SampleRestController {
 private UserService userService;
 	@RequestMapping("/rest")
 	public UserTo helloWorld() {
-		UserTo userTo = new UserTo("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ADMIN);
+		UserTo userTo = new UserTo("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ROLE_ADMIN);
 		return userTo;
 	}
 
 	@RequestMapping("/rests")
 	public Set<UserTo> getRests() {
-		UserTo userTo1 = new UserTo("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ADMIN);
+		UserTo userTo1 = new UserTo("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ROLE_ADMIN);
 		UserTo userTo2 = new UserTo("Ambrozy", "Kleks", "maly@okleks.com", "231", RoleEnum.DOCTOR);
 		userService.saveUser(userTo1);
 		userService.saveUser(userTo1);

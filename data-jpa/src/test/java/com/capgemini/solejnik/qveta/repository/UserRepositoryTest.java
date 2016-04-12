@@ -19,7 +19,7 @@ public class UserRepositoryTest {
 
 	@Test
 	public void test() {
-		UserEntity userEntity = new UserEntity("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ADMIN);
+		UserEntity userEntity = new UserEntity("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ROLE_ADMIN);
 		userRepository.save(userEntity);
 		UserEntity one = userRepository.findAll().get(0);
 		assertNotNull(one);

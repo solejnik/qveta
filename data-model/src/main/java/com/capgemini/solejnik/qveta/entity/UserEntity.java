@@ -2,6 +2,8 @@ package com.capgemini.solejnik.qveta.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,7 +12,7 @@ import javax.persistence.Table;
 import com.capgemini.solejnik.qveta.enums.RoleEnum;
 
 @Entity
-@Table(name="USER1")
+@Table(name = "USER1")
 public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,23 +22,25 @@ public class UserEntity {
 	@Column(nullable = false)
 	private String lastName;
 	@Column(nullable = false)
-	private RoleEnum role;
+	private String role;
 
 	@Column(nullable = false)
 	private String email;
 	@Column(nullable = false)
 	private String password;
+	@Column(nullable = false)
+	private Byte enabled;
 
 	public UserEntity() {
 	}
 
-	public UserEntity(String firstName, String lastName, String email, String password,
-			RoleEnum role) {
+	public UserEntity(String firstName, String lastName, String email, String password, RoleEnum role) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
-		this.role = role;
+		this.role = role.getRole();
+		this.enabled = 1;
 	}
 
 	public Long getId() {
@@ -66,7 +70,7 @@ public class UserEntity {
 	public String getEmail() {
 		return email;
 	}
-
+	@Enumerated(EnumType.STRING)
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -78,13 +82,21 @@ public class UserEntity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public RoleEnum getRole() {
+	
+	public String getRole() {
 		return role;
 	}
 
 	public void setRole(RoleEnum role) {
-		this.role = role;
+		this.role = role.getRole();
+	}
+
+	public Byte getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Byte enabled) {
+		this.enabled = enabled;
 	}
 
 }

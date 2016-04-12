@@ -16,7 +16,7 @@ public class SampleController {
 
 	@RequestMapping("/sampleUser")
 	public ModelAndView helloWorld() {
-		UserTo userTo = new UserTo("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ADMIN);
+		UserTo userTo = new UserTo("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ROLE_ADMIN);
 		service.saveUser(userTo);
 		return new ModelAndView("sampleUser", "user", userTo);
 	}

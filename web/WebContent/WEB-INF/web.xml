@@ -12,9 +12,8 @@
         </servlet-class>
             <init-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/context.xml</param-value>
+        <param-value>/WEB-INF/dispatcherServletContext.xml</param-value>
             </init-param>
-        <load-on-startup>1</load-on-startup>
     </servlet>
     
      <servlet-mapping>
@@ -26,14 +25,8 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>
-            /WEB-INF/security.xml
-        </param-value>
-    </context-param>
     
-    <!-- Spring Security -->
+<!--     Spring Security -->
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>

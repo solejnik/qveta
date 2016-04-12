@@ -3,25 +3,19 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/security
-           http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+           http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<http auto-config="true">
 		<intercept-url pattern="/rest" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
 	</http>
 
 	<authentication-manager>
 		<authentication-provider>
-			<!-- <user-service> -->
-			<!-- <user name="kleks" password="123" authorities="ROLE_USER" /> -->
-			<!-- <user name="solejnik" password="123" authorities="ROLE_USER,ROLE_ADMIN" 
-				/> -->
-			<!-- </user-service> -->
 			<jdbc-user-service data-source-ref="datasource"
-				users-by-username-query="select" authorities-by-username-query="" />
+				users-by-username-query="select email,password, enabled from user1 where email=?" 
+				authorities-by-username-query="select email, role from user1 where email=?" />
 		</authentication-provider>
 	</authentication-manager>
-
-	<beans:import resource="classpath:/META-INF/database-context.xml" />
 
 </beans:beans>
