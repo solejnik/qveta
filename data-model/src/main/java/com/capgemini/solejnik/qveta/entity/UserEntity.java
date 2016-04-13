@@ -21,8 +21,9 @@ public class UserEntity {
 	private String firstName;
 	@Column(nullable = false)
 	private String lastName;
+	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private String role;
+	private RoleEnum role;
 
 	@Column(nullable = false)
 	private String email;
@@ -39,7 +40,7 @@ public class UserEntity {
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
-		this.role = role.getRole();
+		this.role = role;
 		this.enabled = 1;
 	}
 
@@ -83,12 +84,12 @@ public class UserEntity {
 		this.password = password;
 	}
 	
-	public String getRole() {
+	public RoleEnum getRole() {
 		return role;
 	}
 
 	public void setRole(RoleEnum role) {
-		this.role = role.getRole();
+		this.role = role;
 	}
 
 	public Byte getEnabled() {

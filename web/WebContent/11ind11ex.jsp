@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Spring MVC Tutorial Series by Crunchify.com</title>
+<title>qVETa</title>
 <style type="text/css">
 
 </style>
@@ -9,7 +9,7 @@
     <br>
     <div style="text-align:center">
         <h3>
-            <a href="static/index.html">INDEX</a>
+            <a href="index.html">INDEX</a>
         </h3>
         <h3>
             <a href="sampleUser">Click here to See sample user</a>

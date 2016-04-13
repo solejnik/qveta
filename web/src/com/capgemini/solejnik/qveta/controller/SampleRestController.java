@@ -24,7 +24,7 @@ private UserService userService;
 	@RequestMapping("/rests")
 	public Set<UserTo> getRests() {
 		UserTo userTo1 = new UserTo("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ROLE_ADMIN);
-		UserTo userTo2 = new UserTo("Ambrozy", "Kleks", "maly@okleks.com", "231", RoleEnum.DOCTOR);
+		UserTo userTo2 = new UserTo("Ambrozy", "Kleks", "maly@okleks.com", "231", RoleEnum.ROLE_DOCTOR);
 		userService.saveUser(userTo1);
 		userService.saveUser(userTo1);
 		Set<UserTo> users = new HashSet<UserTo>();

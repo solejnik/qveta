@@ -21,7 +21,7 @@ public class UserServiceTest {
 
 	@Test
 	public void test() {
-		UserTo userTo = new UserTo("Simon", "Olejnik", "simon@simon.com", "123", RoleEnum.ADMIN);
+		UserTo userTo = new UserTo("Simon", "Olejnik", "simon@simon.com", "123", RoleEnum.ROLE_ADMIN);
 		userService.saveUser(userTo);
 		UserTo first = userService.getFirst();
 		assertNotNull(first);
