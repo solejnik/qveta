@@ -19,7 +19,6 @@
 	</bean>
 	
 	<mvc:annotation-driven />
-<!-- 	<mvc:resources mapping="/**" location="WEB-INF/static/"/> -->
 	<mvc:resources mapping="/static/**" location="WEB-INF/static/"/>
 	<mvc:default-servlet-handler />
 	
