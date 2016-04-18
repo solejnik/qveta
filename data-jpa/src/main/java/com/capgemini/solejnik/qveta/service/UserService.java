@@ -8,4 +8,5 @@ public interface UserService {
 	UserTo getFirst();
 	void saveUser(UserTo userTo);
 	Set<UserTo> getAllUsers();
+	UserTo getUserByEmailAndPassword(String email, String password);
 }

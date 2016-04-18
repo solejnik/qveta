@@ -26,5 +26,11 @@ public class UserServiceTest {
 		UserTo first = userService.getFirst();
 		assertNotNull(first);
 	}
+	
+	@Test
+	public void findUserByEmailAndPassword(){
+		UserTo foundUser = userService.getUserByEmailAndPassword("simon@olejnik.com", "123");
+		assertNotNull(foundUser);
+	}
 
 }

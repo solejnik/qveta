@@ -36,4 +36,12 @@ public class UserServiceImpl implements UserService {
 		return allUsersTo;
 	}
 
+	public UserTo getUserByEmailAndPassword(String email, String password) {
+		UserEntity foundUser = userRepository.getUserByEmailAndPassword(email, password);
+		if (foundUser != null) {
+			return UserMapper.map(foundUser);
+		}
+		return null;
+	}
+
 }
