@@ -22,7 +22,7 @@
 	<http auto-config="true">
        <intercept-url pattern="/static/index.html#/main/login" access="permitAll" />
        <intercept-url pattern="/rests" access="hasRole('ROLE_ADMIN')" />
-       <intercept-url pattern="/rest" access="hasRole('ROLE_ADMIN')" />
+<!--        <intercept-url pattern="/rest" access="hasRole('ROLE_ADMIN')" /> -->
        <intercept-url pattern="/sampleUser" access="hasRole('ROLE_ADMIN')" />
         <form-login 
             login-page="/static/index.html#/main/login"

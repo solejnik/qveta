@@ -4,8 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,10 +21,14 @@ public class SampleRestController {
 	private UserService userService;
 
 	@RequestMapping("/rest")
-	public UserTo helloWorld() {
-		UserTo userTo = new UserTo("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ROLE_ADMIN);
+	public UserTo helloWorld(@RequestBody UserTo userTo) {
 		return userTo;
 	}
+//	@RequestMapping("/rest")
+//	public UserTo helloWorld() {
+//		UserTo userTo = new UserTo("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ROLE_ADMIN);
+//		return userTo;
+//	}
 
 	@RequestMapping("/rests")
 	public Set<UserTo> getRests() {
@@ -46,10 +49,16 @@ public class SampleRestController {
 		return userDetails;
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public boolean registerNewUser(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
-			@RequestParam("email") String email, @RequestParam("password") String password) {
-		userService.saveUser(new UserTo(firstName, lastName, email, password, RoleEnum.ROLE_CLIENT));
+//	@RequestMapping(value = "/register")
+//	public boolean registerNewUser(@RequestParam("firstName") String firstName,
+//			@RequestParam("lastName") String lastName, @RequestParam("email") String email,
+//			@RequestParam("password") String password) {
+//		userService.saveUser(new UserTo(firstName, lastName, email, password, RoleEnum.ROLE_CLIENT));
+//		return true;
+//	}
+
+	@RequestMapping(value = "/register123", method = RequestMethod.POST)
+	public boolean register(@RequestBody UserTo userTo) {
 		return true;
 	}
 
