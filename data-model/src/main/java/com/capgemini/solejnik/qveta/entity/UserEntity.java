@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.capgemini.solejnik.qveta.enums.RoleEnum;
 
@@ -25,7 +26,7 @@ public class UserEntity {
 	@Column(nullable = false)
 	private RoleEnum role;
 
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String email;
 	@Column(nullable = false)
 	private String password;
@@ -71,6 +72,7 @@ public class UserEntity {
 	public String getEmail() {
 		return email;
 	}
+
 	@Enumerated(EnumType.STRING)
 	public void setEmail(String email) {
 		this.email = email;
@@ -83,7 +85,7 @@ public class UserEntity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public RoleEnum getRole() {
 		return role;
 	}

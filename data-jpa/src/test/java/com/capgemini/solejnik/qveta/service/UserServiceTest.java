@@ -20,7 +20,7 @@ public class UserServiceTest {
 	private UserService userService;
 
 	@Test
-	public void test() {
+	public void testShouldSaveUser() {
 		UserTo userTo = new UserTo("Simon", "Olejnik", "simon@simon.com", "123", RoleEnum.ROLE_ADMIN);
 		userService.saveUser(userTo);
 		UserTo first = userService.getFirst();
@@ -28,7 +28,7 @@ public class UserServiceTest {
 	}
 	
 	@Test
-	public void findUserByEmailAndPassword(){
+	public void testShouldFindUserByEmailAndPassword(){
 		UserTo foundUser = userService.getUserByEmailAndPassword("simon@olejnik.com", "123");
 		assertNotNull(foundUser);
 	}

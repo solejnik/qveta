@@ -18,9 +18,11 @@ public class UserRepositoryTest {
 	private UserRepository userRepository;
 
 	@Test
-	public void test() {
+	public void testShouldFailSavingTheSameUserTwice() {
 		UserEntity userEntity = new UserEntity("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ROLE_ADMIN);
+		UserEntity userEntity1 = new UserEntity("Simon", "Olejnik", "simon@olejnik.com", "123", RoleEnum.ROLE_ADMIN);
 		userRepository.save(userEntity);
+		userRepository.save(userEntity1);
 		UserEntity one = userRepository.findAll().get(0);
 		assertNotNull(one);
 	}

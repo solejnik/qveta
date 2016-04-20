@@ -13,9 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "PET")
+@Table(name = "PET", uniqueConstraints = @UniqueConstraint(columnNames = { "name", "owner_id" }) )
 public class PetEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

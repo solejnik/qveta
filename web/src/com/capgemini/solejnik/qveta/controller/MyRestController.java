@@ -1,6 +1,8 @@
 package com.capgemini.solejnik.qveta.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +19,7 @@ public class MyRestController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public void register(@RequestBody UserTo userTo) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (userTo != null && userTo.getRole() == null) {
 			userTo.setRole(RoleEnum.ROLE_CLIENT);
 			userService.saveUser(userTo);

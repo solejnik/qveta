@@ -11,7 +11,7 @@ public class AuthenticationController {
 	public ModelAndView login() {
 		return new ModelAndView("login", "message", "There is a login page");
 	}
-	@RequestMapping("/defaultPage")
+	@RequestMapping("/defaultPagre")
 	public ModelAndView defaultPage() {
 		return new ModelAndView("defaultPage", "message", "There is a default page");
 	}
