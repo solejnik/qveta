@@ -1,24 +1,26 @@
 package com.capgemini.solejnik.qveta.to;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 public class PetTo {
 	private Long id;
 	private String name;
-	private PetTypeTo type;
+	private String type;
 	private Date bornDate;
-	private UserTo owner;
-	private Set<VisitTo> visits = new HashSet<VisitTo>();
 
 	public PetTo() {
 	}
 
-	public PetTo(String name, PetTypeTo type, UserTo owner, Date bornDate) {
+	public PetTo(Long id, String name, PetTypeTo type, Date bornDate) {
+		this.id = id;
 		this.name = name;
-		this.type = type;
-		this.owner = owner;
+		this.type = type.getName();
+		this.bornDate = bornDate;
+	}
+
+	public PetTo(String name, PetTypeTo type, Date bornDate) {
+		this.name = name;
+		this.type = type.getName();
 		this.bornDate = bornDate;
 	}
 
@@ -38,20 +40,12 @@ public class PetTo {
 		this.name = name;
 	}
 
-	public PetTypeTo getType() {
+	public String getType() {
 		return type;
 	}
 
 	public void setType(PetTypeTo type) {
-		this.type = type;
-	}
-
-	public UserTo getOwner() {
-		return owner;
-	}
-
-	public void setOwner(UserTo owner) {
-		this.owner = owner;
+		this.type = type.getName();
 	}
 
 	public Date getBornDate() {
@@ -61,13 +55,4 @@ public class PetTo {
 	public void setBornDate(Date bornDate) {
 		this.bornDate = bornDate;
 	}
-
-	public Set<VisitTo> getVisits() {
-		return visits;
-	}
-
-	public void setVisits(Set<VisitTo> visits) {
-		this.visits = visits;
-	}
-
 }

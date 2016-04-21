@@ -40,4 +40,8 @@ public class PetServiceImpl implements PetService {
 		return petToSet;
 	}
 
+	public void deletePet(Long petId) {
+		petRepository.delete(petId);
+	}
+
 }

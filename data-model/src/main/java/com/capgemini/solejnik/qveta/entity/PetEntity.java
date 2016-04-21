@@ -27,12 +27,23 @@ public class PetEntity {
 	private PetTypeEntity type;
 	@Column(nullable = false)
 	private Date bornDate;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	private UserEntity owner;
 	@OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
 	private Set<VisitEntity> visits = new HashSet<VisitEntity>();
 
 	public PetEntity() {
+	}
+
+	public PetEntity(String name,  Date bornDate) {
+		this.name = name;
+		this.bornDate = bornDate;
+	}
+	
+	public PetEntity(String name, PetTypeEntity type, Date bornDate) {
+		this.name = name;
+		this.type = type;
+		this.bornDate = bornDate;
 	}
 
 	public PetEntity(String name, PetTypeEntity type, UserEntity owner, Date bornDate) {

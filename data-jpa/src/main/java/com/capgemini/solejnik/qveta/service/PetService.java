@@ -6,6 +6,7 @@ import com.capgemini.solejnik.qveta.to.PetTo;
 
 public interface PetService {
 	void savePet(PetTo petTo);
+	void deletePet(Long petId);
 	Set<PetTo> getAllPets();
 	Set<PetTo> getPetsByUsersEmail(String email);
 }

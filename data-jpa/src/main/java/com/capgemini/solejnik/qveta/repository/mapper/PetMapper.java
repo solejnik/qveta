@@ -5,14 +5,13 @@ import com.capgemini.solejnik.qveta.to.PetTo;
 
 public class PetMapper {
 	public static PetEntity map(PetTo petTo) {
-		PetEntity petEntity = new PetEntity(petTo.getName(), PetTypeMapper.map(petTo.getType()),
-				UserMapper.map(petTo.getOwner()), petTo.getBornDate());
+		PetEntity petEntity = new PetEntity(petTo.getName(), petTo.getBornDate());
 		return petEntity;
 	}
 
 	public static PetTo map(PetEntity petEntity) {
-		PetTo petTo = new PetTo(petEntity.getName(), PetTypeMapper.map(petEntity.getType()),
-				UserMapper.map(petEntity.getOwner()), petEntity.getBornDate());
+		PetTo petTo = new PetTo(petEntity.getId(), petEntity.getName(), PetTypeMapper.map(petEntity.getType()),
+				petEntity.getBornDate());
 		return petTo;
 	}
 }
