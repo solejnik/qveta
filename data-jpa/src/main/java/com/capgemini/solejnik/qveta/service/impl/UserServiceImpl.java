@@ -43,5 +43,9 @@ public class UserServiceImpl implements UserService {
 		}
 		return null;
 	}
+	
+	public UserTo getUserByEmail(String email){
+		return UserMapper.map(userRepository.getUserByEmail(email));
+	}
 
 }

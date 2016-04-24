@@ -5,12 +5,12 @@ import com.capgemini.solejnik.qveta.to.PetTypeTo;
 
 public class PetTypeMapper {
 	public static PetTypeEntity map(PetTypeTo petTypeTo) {
-		PetTypeEntity petTypeEntity = new PetTypeEntity(petTypeTo.getName());
+		PetTypeEntity petTypeEntity = new PetTypeEntity(petTypeTo.getId(), petTypeTo.getName());
 		return petTypeEntity;
 	}
 
 	public static PetTypeTo map(PetTypeEntity petTypeEntity) {
-		PetTypeTo petTypeTo = new PetTypeTo(petTypeEntity.getName());
+		PetTypeTo petTypeTo = new PetTypeTo(petTypeEntity.getId(), petTypeEntity.getName());
 		return petTypeTo;
 	}
 }

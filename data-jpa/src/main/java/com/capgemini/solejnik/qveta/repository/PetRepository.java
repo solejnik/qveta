@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.solejnik.qveta.entity.PetEntity;
-import com.capgemini.solejnik.qveta.entity.UserEntity;
 
 @Repository
 public interface PetRepository extends JpaRepository<PetEntity, Long> {

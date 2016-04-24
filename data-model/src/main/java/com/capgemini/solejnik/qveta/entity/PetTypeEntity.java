@@ -27,6 +27,11 @@ public class PetTypeEntity {
 	public PetTypeEntity() {
 	}
 
+	public PetTypeEntity(Long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 	public PetTypeEntity(String name) {
 		this.name = name;
 	}

@@ -10,16 +10,30 @@ import org.springframework.stereotype.Service;
 import com.capgemini.solejnik.qveta.entity.PetEntity;
 import com.capgemini.solejnik.qveta.repository.PetRepository;
 import com.capgemini.solejnik.qveta.repository.mapper.PetMapper;
+import com.capgemini.solejnik.qveta.repository.mapper.PetTypeMapper;
+import com.capgemini.solejnik.qveta.repository.mapper.UserMapper;
 import com.capgemini.solejnik.qveta.service.PetService;
+import com.capgemini.solejnik.qveta.service.PetTypeService;
 import com.capgemini.solejnik.qveta.to.PetTo;
+import com.capgemini.solejnik.qveta.to.UserTo;
 
 @Service
 public class PetServiceImpl implements PetService {
 	@Autowired
 	private PetRepository petRepository;
+	@Autowired
+	private PetTypeService petTypeService;
 
 	public void savePet(PetTo petTo) {
 		petRepository.save(PetMapper.map(petTo));
+	}
+
+	public void editPet(PetTo petTo) {
+		PetEntity petToEdit = petRepository.findOne(petTo.getId());
+		petToEdit.setName(petTo.getName());
+		petToEdit.setBornDate(petTo.getBornDate());
+		petToEdit.setType(PetTypeMapper.map(petTypeService.getPetTypeByName(petTo.getType())));
+		petRepository.save(petToEdit);
 	}
 
 	public Set<PetTo> getAllPets() {
@@ -42,6 +56,13 @@ public class PetServiceImpl implements PetService {
 
 	public void deletePet(Long petId) {
 		petRepository.delete(petId);
+	}
+
+	public void savePet(PetTo petTo, UserTo currentUser) {
+		PetEntity petEntity = PetMapper.map(petTo);
+		petEntity.setOwner(UserMapper.map(currentUser));
+		petEntity.setType(PetTypeMapper.map(petTypeService.getPetTypeByName(petTo.getType())));
+		petRepository.save(petEntity);
 	}
 
 }

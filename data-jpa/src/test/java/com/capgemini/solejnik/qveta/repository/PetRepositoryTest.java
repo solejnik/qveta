@@ -36,7 +36,7 @@ public class PetRepositoryTest {
 
 	@Test
 	public void testShouldFindPetsByOwner() {
-		petRepository.delete(3L);
+		petRepository.delete(2L);
 	}
 //	@Test
 //	public void testShouldFindPetsByOwner() {

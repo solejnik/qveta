@@ -23,7 +23,7 @@ public class PetEntity {
 	private Long id;
 	@Column(nullable = false)
 	private String name;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	private PetTypeEntity type;
 	@Column(nullable = false)
 	private Date bornDate;
