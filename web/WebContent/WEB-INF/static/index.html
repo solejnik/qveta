@@ -25,8 +25,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"
-		    data-ng-init="navCollapsed = true" data-ng-click="navCollapsed = !navCollapsed">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" data-ng-init="navCollapsed = true" data-ng-click="navCollapsed = !navCollapsed">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -36,8 +35,18 @@
         </div>
         <div class="collapse navbar-collapse" data-ng-class="{'in':!navCollapsed}">
             <ul class="ng-cloak nav navbar-nav">
-                <li><a href="#/main/login">Login</a></li>
-                <li><a href="#/register/register">Register</a></li>
+                <li>
+                    <a ng-show="isUserAnonymous" href="#/main/login">Logowanie</a>
+                </li>
+                <li>
+                    <a ng-show="isUserAnonymous" href="#/register/register">Rejestracja</a>
+                </li>
+                <li>
+                    <a ng-hide="isUserAnonymous" href="#/pets/pets">Zwierzaki</a>
+                </li>
+                <li>
+                    <a ng-hide="isUserAnonymous" href="/web/j_spring_security_logout">Wyloguj</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -53,6 +62,6 @@
 
 <script src="js/vendor-fa012e4a20.js"></script>
 
-<script src="js/app-a41878f809.js"></script>
+<script src="js/app-816eec44b6.js"></script>
 </body>
 </html>

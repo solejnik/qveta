@@ -1,6 +1,8 @@
 package com.capgemini.solejnik.qveta.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +23,14 @@ public class RegisterRestService {
 			userTo.setRole(RoleEnum.ROLE_CLIENT);
 			userService.saveUser(userTo);
 		}
+	}
+	
+	@RequestMapping(value = "/currentUsersRole", method = RequestMethod.GET)
+	private boolean getCurrentUsersRole() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String usersRole = auth.getAuthorities().toString();
+		boolean isAnonymous = usersRole.contains("ANONYMOUS");
+		return isAnonymous;
 	}
 
 }
